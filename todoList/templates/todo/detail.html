@@ -1,0 +1,46 @@
+
+{% extends 'todo/base.html' %}
+{% load static %}
+{% block title%}
+{% endblock %}  
+
+{% block content %}
+
+    <div class="card ">
+        
+        <div class="card-body">
+            <h1 class="card-text ellipsis">{{todo.title}}</h1>
+            <p class="card-text ellipsis">{{todo.description}}</p>
+                <ul class="card-text ellipsis" >
+                    <li>
+                        {{todo.priority}}
+                    </li>
+                    <li>
+                        {{todo.enability|yesno}}
+                    </li>
+                    <li>
+                        {{todo.to_prolong|yesno}}
+                    </li>
+                </ul>
+                <p class="card-text ellipsis">prévu pour le:{{todo.date_debut}}</p>
+                <p class="card-text ellipsis">expire le:{{todo.date.expiration}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <button type="button" class=" btn-info">
+                <a href="{%url 'delete' todo.id%}">Supprimer</a>
+                </button>
+                <button type="button" class="btn-warning" > <a class="mod" href="{%url 'update' todo.id %}" >Modifier</a></button>
+                <button type="button" class="btn-retour"><a href="{%url 'home' %}">Retour</a></button>
+            </div>
+            <small class="text-muted">{{album.id}}</small>
+            </div>
+        </div>
+    </div>
+
+<div class="gauche">
+    ToDO App 
+    <br>
+    avec Django
+</div>
+
+{% endblock %}  

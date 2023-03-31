@@ -1,0 +1,46 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+<div class="transparent-div">
+    <div class="box-create">
+        <p class="new-todo">
+           Nouvelle tâche...
+        </p>
+        <div class="create">
+            <a href="{%url 'create'%}">
+                Ajouter 
+            </a>   
+        </div>
+    </div>
+    <div class="box-tache">
+        <p class="Liste-entete">
+            Ma liste de taches 
+        </p>
+    </div>
+    <table class ="table-styled">
+        <thead> 
+            <tr>
+                <th class="large">Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for todo in todos%}
+            <tr>
+                <td class="large" >{{todo.title}}</td>
+                <td>
+                    <button class="Do-more">
+                        <a class="text-white" href="{%url 'detail' todo.id%}">Voir Plus...</a>
+                    </button>
+                </td>
+            </tr>  
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+<div class="gauche">
+    ToDO App 
+    <br>
+    avec Django
+</div>
+
+{% endblock %}  

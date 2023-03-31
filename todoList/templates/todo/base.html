@@ -1,0 +1,14 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Le gestionnaire de tâche </title>
+        {% block title %}
+        {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" />
+    <body class="body-color">
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
